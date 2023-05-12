@@ -1,0 +1,23 @@
+# Compiled object files
+*.o
+
+# Compiled dynamic libraries
+*.so
+*.dylib
+
+# Executable files
+*.exe
+
+# IDE and editor files
+.vscode/settings.json
+
+*.code-workspace
+
+# Build output directories
+build/
+bin/
+
+# Dependencies and external libraries
+vendor/
+
+game
