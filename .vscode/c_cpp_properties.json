@@ -13,13 +13,10 @@
         },
         {
             "name": "Windows",
-            "includePath": [
-                "<path_to_SFML_include_directory>",
-                "${workspaceFolder}/**"
-            ],
+            "includePath": ["C:/SFML-2.5.1/include", "${workspaceFolder}/**"],
             "defines": [],
             "windowsSdkVersion": "10.0.19041.0",
-            "compilerPath": "C:/mingw-w64/bin/g++.exe",
+            "compilerPath": "C:/msys64/mingw64/bin/g++",
             "cStandard": "c17",
             "cppStandard": "c++20",
             "intelliSenseMode": "gcc-x64"

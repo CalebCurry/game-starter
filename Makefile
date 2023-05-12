@@ -1,6 +1,6 @@
 # Compiler options
 CXX = g++
-CXXFLAGS = -std=c++11 -Wall -Wextra -pedantic
+CXXFLAGS = -std=c++20 -Wall -Wextra -pedantic
 
 # SFML options
 SFML_LIBS = -lsfml-graphics -lsfml-window -lsfml-system
@@ -8,11 +8,11 @@ SFML_LIBS = -lsfml-graphics -lsfml-window -lsfml-system
 # macOS specific options
 ifeq ($(shell uname), Darwin)
     SFML_INC = -I/opt/homebrew/include
-    SFML_LDFLAGS = -L/opt/homebrew/lib
+    SFML_LDFLAGS = -L/opt/homebrew/lib $(SFML_LIBS)
 else
 # Windows specific options
-    SFML_INC = -I<sfml_install_directory>/include
-    SFML_LDFLAGS = -L<sfml_install_directory>/lib
+    SFML_INC = -I$(wildcard C:/SFML*/include)
+    SFML_LDFLAGS = -L$(wildcard C:/SFML*/lib) $(SFML_LIBS)
 endif
 # Source files
 SRCS = main.cpp
@@ -25,8 +25,8 @@ EXEC = game
 
 all: $(EXEC)
 
-$(EXEC): $(OBJS)
-	$(CXX) $(CXXFLAGS) $(SFML_LIBS) $(SFML_LDFLAGS) $^ -o $@
+$(EXEC): $(OBJS)	
+	$(CXX) $(CXXFLAGS) $(SFML_INC) $^ -o $@ $(SFML_LDFLAGS) 
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) $(SFML_INC) -c $< -o $@
